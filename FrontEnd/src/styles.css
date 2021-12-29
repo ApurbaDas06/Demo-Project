@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+/*body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }*/
+.backgroundImage{
+  background: url('/assets/background1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+body{
+  background: url('/assets/background1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+img.img-fluid {
+  height: 594px;
+  width: 403px;
+}
+.error-messages {
+  color: red;
+  font-size: 12px; }
+
+.ng-touched{
+  border-color:red;
+}
+
+.card-holder{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.card{
+  /* other default style */
+  background-color: rgba(11, 10, 10, 0.4);  grid-row: 2/3;
+  grid-column: 2/3; opacity: 140.4;
+  grid-row: 2/3;
+  grid-column: 2/3;
+}
+.card-header, .card-footer { opacity: 1}
+.card div{
+  grid-row: 2/3;
+}
+.card div{
+  grid-row: 2/3;
+}

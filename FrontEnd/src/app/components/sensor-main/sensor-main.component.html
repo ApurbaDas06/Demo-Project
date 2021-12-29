@@ -1,0 +1,81 @@
+
+<div class="backgroundImage">
+  <ngx-spinner></ngx-spinner>
+<div class="list row">
+
+  <br>
+</div>
+  <p>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTable" aria-expanded="false" aria-controls="collapseExample">
+      Click to open or close Data Table
+    </button>
+  </p>
+  <div class="collapse show" id="collapseTable">
+    <div class="card card-body">
+      <div class="list-row-1">
+
+        <div class="wrapper">
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+<!--            <ng-container matColumnDef="id">-->
+<!--              <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>-->
+<!--              <td mat-cell *matCellDef="let element"> {{element.id}} </td>-->
+<!--            </ng-container>-->
+
+            <ng-container matColumnDef="timeEntry">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Time-Stamp </th>
+              <td mat-cell *matCellDef="let element"> {{returnDate(element.timeEntry)}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="flowRate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Flow-Rate </th>
+              <td mat-cell *matCellDef="let element"> {{element.flowRate}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="pressure">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Pressure </th>
+              <td mat-cell *matCellDef="let element"> {{element.pressure}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          <div>
+            <mat-paginator [pageSizeOptions]="[5, 10, 15]" ></mat-paginator>
+
+          </div>
+          <!-- Angular 8 pagination -->
+
+          <button class="m-3 btn btn-sm btn-danger" (click)="removeAllData()">
+            Remove All
+          </button>
+
+          <button class="m-3 btn btn-sm btn-danger" (click)="plotGraph()" data-toggle="modal" data-target="#exampleModal">
+            Plot Graph
+          </button>
+          <button class="m-3 btn btn-sm btn-danger" (click)="redirectAdd()">
+            Add Data
+          </button>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body" >
+        <app-multi-series-line-chart *ngIf="chartData" [dataE]="chartData"></app-multi-series-line-chart>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
